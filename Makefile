@@ -4,7 +4,7 @@ install:
 
 format:
 	# format code
-
+	black *.py
 lint:
 	# linting with pylint
 
