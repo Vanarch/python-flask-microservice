@@ -5,8 +5,10 @@ install:
 format:
 	# format code
 	black *.py
+
 lint:
 	# linting with pylint
+	pylint --disable=R,C *.py
 
 test:
 	# test the code
