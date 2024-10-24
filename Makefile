@@ -12,7 +12,7 @@ lint:
 
 test:
 	# test the code
-
+	python -m pytest -v tests/
 build:
 	# build container
 

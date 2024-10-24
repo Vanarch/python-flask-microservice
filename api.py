@@ -33,8 +33,7 @@ class Users(Resource):
         user = UserModel(name=args["name"], email=args["email"])
         db.session.add(user)
         db.session.commit()
-        users = UserModel.query.all()
-        return users, 201
+        return user, 201
 
 class User(Resource):
     @marshal_with(userFields)
