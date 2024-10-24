@@ -7,6 +7,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 db = SQLAlchemy(app)
 api = Api(app)
 
+
 class UserModel(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
@@ -15,11 +16,13 @@ class UserModel(db.Model):
     def __repr__(self):
         return f"User(name = {self.name}, email = {self.email})"
 
+
 user_args = reqparse.RequestParser()
 user_args.add_argument("name", type=str, required=True, help="Name cannot be blank")
 user_args.add_argument("email", type=str, required=True, help="Email cannot be blank")
 
 userFields = {"user_id": fields.Integer, "name": fields.String, "email": fields.String}
+
 
 class Users(Resource):
     @marshal_with(userFields)
@@ -34,6 +37,7 @@ class Users(Resource):
         db.session.add(user)
         db.session.commit()
         return user, 201
+
 
 class User(Resource):
     @marshal_with(userFields)
@@ -64,13 +68,15 @@ class User(Resource):
         users = UserModel.query.all()
         return users
 
+
 api.add_resource(Users, "/api/users/")
 api.add_resource(User, "/api/users/<int:user_id>")
+
 
 @app.route("/")
 def home():
     return "<h1>Flask REST API</h1>"
 
+
 if __name__ == "__main__":
     app.run(debug=True)
-
