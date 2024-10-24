@@ -18,7 +18,7 @@ jobs:
         make install
     - name: Create database
       run: |
-        python createdb.py
+        python create_db.py
     - name: Lint with pylint
       run: |
         make lint
