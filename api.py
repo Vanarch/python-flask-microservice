@@ -76,4 +76,3 @@ api.add_resource(User, "/api/users/<int:user_id>")
 @app.route("/")
 def home():
     return "<h1>Flask REST API</h1>"
-
