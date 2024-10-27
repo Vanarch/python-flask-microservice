@@ -16,9 +16,9 @@ jobs:
     - name: Install dependencies
       run: |
         make install
-    - name: Create database
-      run: |
-        python create_db.py
+    #- name: Create database
+    #  run: |
+    #    python create_db.py
     - name: Lint with pylint
       run: |
         make lint
@@ -28,3 +28,6 @@ jobs:
     - name: Format code
       run: |
         make format
+    - name: Build container
+      run: |
+        make build

@@ -77,6 +77,3 @@ api.add_resource(User, "/api/users/<int:user_id>")
 def home():
     return "<h1>Flask REST API</h1>"
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
